@@ -10,33 +10,12 @@ export const LoginFormData = () => {
     loginMail: "",
     Loginpassword: "",
   };
-  //   const labels = ["User Name", "abc"];
-  //   const tagId = ["userName", "aaa"];
-  //   const fieldType = ["text", "sss"];
-
-  const dropdownOptions = [
-    // { key: "Select an option", value: "" },
-    { key: "Option 1", value: "option1" },
-    { key: "Option 2", value: "option2" },
-    { key: "Option 3", value: "option3" },
-  ];
 
   const formValues = [
     {
       labels: "Email Id",
       tagId: "loginMail",
       fieldType: "emailID",
-    },
-    {
-      labels: "Description",
-      tagId: "description",
-      fieldType: "textarea",
-    },
-    {
-      labels: "Select a topic",
-      tagId: "selectOption",
-      fieldType: "select",
-      selectValues: dropdownOptions,
     },
     {
       labels: "Password",
@@ -51,6 +30,9 @@ export const LoginFormData = () => {
 
   return (
     <div>
+      <h1>
+        <b>Login Form</b>
+      </h1>
       <DynamicForm
         initialValues={initialValues}
         formValues={formValues}

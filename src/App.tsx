@@ -1,12 +1,15 @@
 import "./App.css";
-import { FormData } from "./FormComponent/SignInForm/SignInForm";
-// import { LoginFormData } from "./FormComponent/LoginForm/LoginForm";
+import { NavBar } from "./Components/NavBar";
+import Router from "./Components/Router";
 
 function App() {
   return (
     <div className="App">
+      <NavBar />
+      <Router />
       {/* <LoginFormData /> */}
-      <FormData />
+      {/* <SignInForm /> */}
+      {/* <RegistrationForms /> */}
     </div>
   );
 }

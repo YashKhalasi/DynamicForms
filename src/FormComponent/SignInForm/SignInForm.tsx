@@ -5,7 +5,7 @@ type initValueTypes = {
   [key: string]: string | string[];
 };
 
-export const FormData = () => {
+export const SignInForm = () => {
   const initialValues = {
     userName: "",
     emailID: "",
@@ -13,12 +13,9 @@ export const FormData = () => {
     loginId: "",
     password: "",
     confirmPassword: "",
-    checked: ["111"],
-    picked: "one",
+    checked: ["admin"],
+    picked: "admin",
   };
-  //   const labels = ["User Name", "abc"];
-  //   const tagId = ["userName", "aaa"];
-  //   const fieldType = ["text", "sss"];
 
   const formValues = [
     {
@@ -45,15 +42,15 @@ export const FormData = () => {
       labels: "Choose Role",
       tagId: "checked",
       fieldType: "checkbox",
-      values: ["111", "222", "333", "444"],
-      fielsLabels: ["admin", "user", "manager", "CEO"],
+      values: ["admin", "user", "manager", "CEO"],
+      fielsLabels: ["Admin", "User", "Manager", "CEO"],
     },
     {
       labels: "radio buttonm",
       tagId: "picked",
       fieldType: "radio",
-      values: ["one", "two", "three", "four"],
-      fielsLabels: ["admin", "user", "manager", "CEO"],
+      values: ["admin", "user", "manager", "CEO"],
+      fielsLabels: ["Admin", "User", "Manager", "CEO"],
     },
 
     {
@@ -73,11 +70,11 @@ export const FormData = () => {
 
   return (
     <div>
+      <h1>
+        <b>Sign In Form</b>
+      </h1>
       <DynamicForm
         initialValues={initialValues}
-        // labels={labels}
-        // tagId={tagId}
-        // fieldType={fieldType}
         formValues={formValues}
         onDataSubmit={onSubmit}
         validationSchema={signInValidationSchema}

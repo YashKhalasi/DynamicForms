@@ -11,10 +11,10 @@ interface propsType {
 }
 
 function Input(props: propsType) {
-  const { name } = props;
+  const { name, type } = props;
   return (
     <>
-      <Field type="text" id={name} name={name} />
+      <Field type={type} id={name} name={name} />
     </>
   );
 }
