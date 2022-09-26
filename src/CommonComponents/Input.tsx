@@ -3,7 +3,7 @@
  *
  */
 
-import { Field } from "formik";
+import { Field } from 'formik';
 
 interface propsType {
   type: string;

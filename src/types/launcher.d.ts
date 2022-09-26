@@ -1,4 +1,4 @@
-type loginValuetypes = { 
-  emailID: string; 
+interface loginValuetypes {
+  emailID: string;
   password: string;
-};
+}

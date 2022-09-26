@@ -1,31 +1,31 @@
-import { DynamicForm } from "../../CommonComponents/Forms";
-import { loginValidationSchema } from "./LoginFormValidations";
+import { DynamicForm } from '../../CommonComponents/Forms';
+import { loginValidationSchema } from './LoginFormValidations';
 
-type initValueTypes = {
+interface initValueTypes {
   [key: string]: string | string[];
-};
+}
 
 export const LoginFormData = () => {
   const initialValues = {
-    loginMail: "",
-    Loginpassword: "",
+    loginMail: '',
+    Loginpassword: '',
   };
 
   const formValues = [
     {
-      labels: "Email Id",
-      tagId: "loginMail",
-      fieldType: "emailID",
+      labels: 'Email Id',
+      tagId: 'loginMail',
+      fieldType: 'emailID',
     },
     {
-      labels: "Password",
-      tagId: "Loginpassword",
-      fieldType: "text",
+      labels: 'Password',
+      tagId: 'Loginpassword',
+      fieldType: 'text',
     },
   ];
 
   const onSubmit = (values: initValueTypes) => {
-    console.log("Form data", values);
+    console.log('Form data', values);
   };
 
   return (

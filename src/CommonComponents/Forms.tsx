@@ -1,21 +1,21 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import { Container, Button } from "react-bootstrap";
-import TextError from "./TextError";
-import Select from "./Select";
-import Textarea from "./Textarea";
-import Input from "./Input";
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Container, Button } from 'react-bootstrap';
+import TextError from './TextError';
+import Select from './Select';
+import Textarea from './Textarea';
+import Input from './Input';
 
-type initValueTypes = {
+interface initValueTypes {
   [key: string]: string | string[];
-};
+}
 
-type selectProps = {
+interface selectProps {
   key: string;
   value: string;
-};
+}
 
 interface propsType {
-  formValues: {
+  formValues: Array<{
     labels: string;
     tagId: string;
     fieldType: string;
@@ -23,7 +23,7 @@ interface propsType {
     values?: string[];
     selectValues?: selectProps[];
     description?: string;
-  }[];
+  }>;
   onDataSubmit: (data: initValueTypes) => void;
   initialValues: initValueTypes;
   validationSchema: any;
@@ -31,8 +31,8 @@ interface propsType {
 
 export const DynamicForm = (props: propsType) => {
   console.log(
-    "props values...",
-    props.formValues.map((i) => i)
+    'props values...',
+    props.formValues.map((i) => i),
   );
 
   return (
@@ -41,7 +41,7 @@ export const DynamicForm = (props: propsType) => {
         initialValues={props.initialValues}
         validationSchema={props.validationSchema}
         onSubmit={(values: initValueTypes) => {
-          console.log("Formik props", values);
+          console.log('Formik props', values);
           props.onDataSubmit(values);
         }}
         enableReinitialize
@@ -59,23 +59,22 @@ export const DynamicForm = (props: propsType) => {
                     <label className="p-2 form-label" htmlFor={i.tagId}>
                       <b>{i.labels}</b>
                     </label>
-                    {i.fieldType === "checkbox" || i.fieldType === "radio"
+                    {i.fieldType === 'checkbox' || i.fieldType === 'radio'
                       ? i.values?.map((f, g) => (
-                          <label className="p-2 form-label">
+                          <label className="p-2 form-label" key={g}>
                             <Field
-                              key={g}
                               type={i.fieldType}
                               name={i.tagId}
                               value={f}
                             />
                             &nbsp;
-                            {i.fielsLabels ? i.fielsLabels[g] : null}
+                            {i.fielsLabels != null ? i.fielsLabels[g] : null}
                             &nbsp;&nbsp;&nbsp;&nbsp;
                           </label>
                         ))
                       : null}
 
-                    {i.fieldType === "select" ? (
+                    {i.fieldType === 'select' ? (
                       <Select
                         formValues={i}
                         selectValues={i.selectValues}
@@ -83,14 +82,14 @@ export const DynamicForm = (props: propsType) => {
                       />
                     ) : null}
 
-                    {i.fieldType === "textarea" ? (
+                    {i.fieldType === 'textarea' ? (
                       <Textarea formValues={i} isReset={formik.dirty} />
                     ) : null}
 
-                    {i.fieldType === "text" ||
-                    i.fieldType === "emailID" ||
-                    i.fieldType === "password" ||
-                    i.fieldType === "number" ? (
+                    {i.fieldType === 'text' ||
+                    i.fieldType === 'emailID' ||
+                    i.fieldType === 'password' ||
+                    i.fieldType === 'number' ? (
                       <Input type={i.fieldType} name={i.tagId} />
                     ) : null}
 

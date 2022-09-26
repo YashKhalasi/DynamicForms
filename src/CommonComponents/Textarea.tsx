@@ -1,4 +1,4 @@
-import { Field } from "formik";
+import { Field } from 'formik';
 
 interface propsType {
   formValues: {
@@ -14,7 +14,7 @@ function Textarea(props: propsType) {
   return (
     <>
       {!props.isReset ? (
-        <Field as={fieldType} id={tagId} name={tagId} value={""} />
+        <Field as={fieldType} id={tagId} name={tagId} value={''} />
       ) : (
         <Field as={fieldType} id={tagId} name={tagId} />
       )}

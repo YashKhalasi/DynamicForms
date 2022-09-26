@@ -1,9 +1,9 @@
-import * as Yup from "yup";
+import * as Yup from 'yup';
 
-import {signInValidationSchema} from "../FormComponent/SignInForm/signInValidation"
-import {loginValidationSchema} from "../FormComponent/LoginForm/LoginFormValidations"
+import { signInValidationSchema } from '../FormComponent/SignInForm/signInValidation';
+import { loginValidationSchema } from '../FormComponent/LoginForm/LoginFormValidations';
 // console.log("ValidationSchema: " , validationSchema);
 
 export const validationSchemaas = Yup.object({})
-.concat(signInValidationSchema)
-.concat(loginValidationSchema)
+  .concat(signInValidationSchema)
+  .concat(loginValidationSchema);
